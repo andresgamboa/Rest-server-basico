@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 
+
 const UsuarioSchema = Schema( {
 
     nombre: {
@@ -37,7 +38,8 @@ const UsuarioSchema = Schema( {
 
 UsuarioSchema.methods.toJSON = function(){      //toca realizarlo con una funcion normal, porque la funcion de flecha, mantiene el .this fuera de la misma
     
-    const { __v , password, ...usuario } = this.toObject();
+    const { __v , password, _id , ...usuario } = this.toObject();
+    usuario.uid = _id;
 
     return usuario;
 }
