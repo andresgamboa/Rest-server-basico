@@ -38,7 +38,7 @@
 
             const body = { id_token: response.credential }
 
-            fetch( 'https://rest-server-basico-production-eb9a.up.railway.app/api/auth/google', {
+            fetch( ` ${window.location.origin}/api/auth/google `, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
