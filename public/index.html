@@ -38,7 +38,7 @@
 
             const body = { id_token: response.credential }
 
-            fetch( 'http://localhost:8080/api/auth/google', {
+            fetch( 'https://rest-server-basico-production-eb9a.up.railway.app/api/auth/google', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -63,8 +63,7 @@
             google.accounts.id.revoke( localStorage.getItem('email'), done =>{
               localStorage.clear();
               location.reload();
-            } )
-
+            });
         }
 
       </script>
