@@ -9,8 +9,14 @@ class Server {
 
         this.app  = express();
         this.port = process.env.PORT;
-        this.usuariosPath = '/api/usuarios';
-        this.authPath     = '/api/auth';
+        
+        this.paths = {
+            auth:       '/api/auth',
+            busquedas:  '/api/buscar',
+            categorias: '/api/categorias',
+            productos:  '/api/productos',
+            ususarios:  '/api/usuarios',
+        }
 
         //Conectar a la DataBase
 
@@ -48,8 +54,11 @@ class Server {
 
     routes(){
 
-        this.app.use( this.authPath , require('../routers/auth'));
-        this.app.use( this.usuariosPath , require('../routers/usuarios'));
+        this.app.use( this.paths.auth       , require('../routers/auth'));
+        this.app.use( this.paths.busquedas  , require('../routers/busquedas'));
+        this.app.use( this.paths.categorias , require('../routers/categorias'));
+        this.app.use( this.paths.productos  , require('../routers/productos'));
+        this.app.use( this.paths.ususarios  , require('../routers/usuarios'));
     }
 
     listen(){
