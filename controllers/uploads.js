@@ -191,9 +191,7 @@ const mostrarImagen = async( req , res = response ) => {
         //borrar la imagen del servidor
         const pathImagen = path.join( __dirname , '../uploads' , coleccion , modelo.img );
         //busco un archivo que tenga el nombre de la direccion pathImagen y luego lo borro 
-        if ( fs.existsSync( pathImagen ) ){
-            return res.sendFile( pathImagen );
-        }
+        return res.sendFile( pathImagen );
     }
 
     //CARGANDO IMAGEN PREDETERMINADA EN CASO DE QUE NO EXISTA UNA ANTERIOR
